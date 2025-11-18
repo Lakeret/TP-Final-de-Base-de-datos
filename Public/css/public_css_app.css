@@ -1,0 +1,44 @@
+/* Estilos personalizados para la web de cabañas */
+
+/* Ajustes generales */
+body {
+  background-color: #f7f7f7;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Carousel captions */
+.carousel-caption {
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+/* Cards */
+.card .card-img-top {
+  transition: transform .25s ease;
+}
+.card:hover .card-img-top {
+  transform: scale(1.03);
+}
+
+/* Footer spacing */
+footer {
+  margin-top: 2rem;
+  padding: 1rem 0;
+  background: #212529;
+  color: #fff;
+}
+
+/* Flash message tweaks */
+.alert {
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Formularios */
+.form-label {
+  font-weight: 600;
+}
+
+/* Responsive tweaks opcionales */
+@media (max-width: 576px) {
+  .carousel-caption { display: none; }
+}
