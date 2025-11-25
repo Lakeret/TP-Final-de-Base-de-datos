@@ -9,7 +9,7 @@ if (!is_logged()) {
 $cabana_id = intval($_GET['id'] ?? $_POST['cabana_id'] ?? 0);
 
 // Traer datos cabaña
-$stmt = $mysqli->prepare("SELECT id,nombre,precio_noche FROM cabanas WHERE id=?");
+$stmt = $link->prepare("SELECT id,nombre,precio_noche FROM cabanas WHERE id=?");
 $stmt->bind_param('i', $cabana_id);
 $stmt->execute();
 $res = $stmt->get_result();
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         flash('info', 'Fechas inválidas.');
     } else {
         // Verificar solapamiento simple (evita reservas en mismo rango)
-        $stmt = $mysqli->prepare("SELECT COUNT(*) AS cnt FROM reservas WHERE cabana_id=? AND estado!='cancelada' AND NOT (fecha_fin < ? OR fecha_inicio > ?)");
+        $stmt = $link->prepare("SELECT COUNT(*) AS cnt FROM reservas WHERE cabana_id=? AND estado!='cancelada' AND NOT (fecha_fin < ? OR fecha_inicio > ?)");
         $stmt->bind_param('iss', $cabana_id, $fecha_inicio, $fecha_fin);
         $stmt->execute();
         $res = $stmt->get_result();
@@ -36,14 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             flash('info', 'La cabaña ya está reservada en esas fechas.');
         } else {
             $uid = $_SESSION['user_id'];
-            $stmt = $mysqli->prepare("INSERT INTO reservas (usuario_id, cabana_id, fecha_inicio, fecha_fin, estado) VALUES (?, ?, ?, ?, 'pendiente')");
+            $stmt = $link->prepare("INSERT INTO reservas (usuario_id, cabana_id, fecha_inicio, fecha_fin, estado) VALUES (?, ?, ?, ?, 'pendiente')");
             $stmt->bind_param('iiss', $uid, $cabana_id, $fecha_inicio, $fecha_fin);
             if ($stmt->execute()) {
                 flash('info','Reserva creada. Estado: pendiente.');
                 header("Location: reservas_list.php");
                 exit;
             } else {
-                flash('info','Error: ' . $mysqli->error);
+                flash('info','Error: ' . $link->error);
             }
             $stmt->close();
         }

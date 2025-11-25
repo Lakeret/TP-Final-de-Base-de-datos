@@ -7,7 +7,7 @@ if (!is_admin()) {
     exit;
 }
 // Obtener lista
-$stmt = $mysqli->prepare("SELECT id,nombre,precio_noche,capacidad,imagen FROM cabanas ORDER BY id DESC");
+$stmt = $link->prepare("SELECT id,nombre,precio_noche,capacidad,imagen FROM cabanas ORDER BY id DESC");
 $stmt->execute();
 $res = $stmt->get_result();
 $cabanas = $res->fetch_all(MYSQLI_ASSOC);

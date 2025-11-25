@@ -1,6 +1,6 @@
 <?php
 // functions.php
-require_once 'config.php';
+
 
 function is_logged() {
     return isset($_SESSION['user_id']);

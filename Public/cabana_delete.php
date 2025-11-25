@@ -1,6 +1,6 @@
 <?php
 // cabana_delete.php
-require_once 'functions.php';
+require_once 'header.php';
 if (!is_admin()) {
     flash('info', 'Acceso no autorizado.');
     header("Location: index.php");
@@ -8,7 +8,7 @@ if (!is_admin()) {
 }
 $id = intval($_GET['id'] ?? 0);
 if ($id) {
-    $stmt = $mysqli->prepare("DELETE FROM cabanas WHERE id=?");
+    $stmt = $link->prepare("DELETE FROM cabanas WHERE id=?");
     $stmt->bind_param('i', $id);
     $stmt->execute();
     $stmt->close();

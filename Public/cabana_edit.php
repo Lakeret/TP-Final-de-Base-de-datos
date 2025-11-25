@@ -16,20 +16,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $capacidad = intval($_POST['capacidad']);
     $imagen = trim($_POST['imagen']);
 
-    $stmt = $mysqli->prepare("UPDATE cabanas SET nombre=?, descripcion=?, precio_noche=?, capacidad=?, imagen=? WHERE id=?");
+    $stmt = $link->prepare("UPDATE cabanas SET nombre=?, descripcion=?, precio_noche=?, capacidad=?, imagen=? WHERE id=?");
     $stmt->bind_param('ssdiss', $nombre, $descripcion, $precio, $capacidad, $imagen, $id);
     if ($stmt->execute()) {
         flash('info', 'Cabaña actualizada.');
         header("Location: cabanas_list.php");
         exit;
     } else {
-        flash('info', 'Error: ' . $mysqli->error);
+        flash('info', 'Error: ' . $link->error);
     }
     $stmt->close();
 }
 
 // Traer datos actuales
-$stmt = $mysqli->prepare("SELECT nombre,descripcion,precio_noche,capacidad,imagen FROM cabanas WHERE id=?");
+$stmt = $link->prepare("SELECT nombre,descripcion,precio_noche,capacidad,imagen FROM cabanas WHERE id=?");
 $stmt->bind_param('i',$id);
 $stmt->execute();
 $res = $stmt->get_result();

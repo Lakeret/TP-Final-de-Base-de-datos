@@ -1,5 +1,3 @@
-```sql
--- cabanas_db.sql
 -- Crea la base de datos y tablas (puedes usar esta estructura si aún no tienes la DB)
 CREATE DATABASE IF NOT EXISTS cabanas_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE cabanas_db;

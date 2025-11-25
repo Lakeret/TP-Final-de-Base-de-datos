@@ -13,14 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $capacidad = intval($_POST['capacidad']);
     $imagen = trim($_POST['imagen']); // ruta relativa o URL
 
-    $stmt = $mysqli->prepare("INSERT INTO cabanas (nombre, descripcion, precio_noche, capacidad, imagen) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $link->prepare("INSERT INTO cabanas (nombre, descripcion, precio_noche, capacidad, imagen) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param('ssdis', $nombre, $descripcion, $precio, $capacidad, $imagen);
     if ($stmt->execute()) {
         flash('info', 'Cabaña agregada.');
         header("Location: cabanas_list.php");
         exit;
     } else {
-        flash('info', 'Error: ' . $mysqli->error);
+        flash('info', 'Error: ' . $link->error);
     }
     $stmt->close();
 }

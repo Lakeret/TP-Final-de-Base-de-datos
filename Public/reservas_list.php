@@ -7,12 +7,12 @@ if (!is_logged()) {
 }
 
 if (is_admin()) {
-    $stmt = $mysqli->prepare("SELECT r.id, u.nombre AS usuario, c.nombre AS cabana, r.fecha_inicio, r.fecha_fin, r.estado FROM reservas r JOIN usuarios u ON r.usuario_id=u.id JOIN cabanas c ON r.cabana_id=c.id ORDER BY r.created_at DESC");
+    $stmt = $link->prepare("SELECT r.id, u.nombre AS usuario, c.nombre AS cabana, r.fecha_inicio, r.fecha_fin, r.estado FROM reservas r JOIN usuarios u ON r.usuario_id=u.id JOIN cabanas c ON r.cabana_id=c.id ORDER BY r.created_at DESC");
     $stmt->execute();
     $res = $stmt->get_result();
 } else {
     $uid = $_SESSION['user_id'];
-    $stmt = $mysqli->prepare("SELECT r.id, u.nombre AS usuario, c.nombre AS cabana, r.fecha_inicio, r.fecha_fin, r.estado FROM reservas r JOIN usuarios u ON r.usuario_id=u.id JOIN cabanas c ON r.cabana_id=c.id WHERE r.usuario_id=? ORDER BY r.created_at DESC");
+    $stmt = $link->prepare("SELECT r.id, u.nombre AS usuario, c.nombre AS cabana, r.fecha_inicio, r.fecha_fin, r.estado FROM reservas r JOIN usuarios u ON r.usuario_id=u.id JOIN cabanas c ON r.cabana_id=c.id WHERE r.usuario_id=? ORDER BY r.created_at DESC");
     $stmt->bind_param('i',$uid);
     $stmt->execute();
     $res = $stmt->get_result();
