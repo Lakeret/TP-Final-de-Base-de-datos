@@ -1,21 +1,21 @@
 # Sistema de Cabañas - Guía de Pruebas
 
-## 🚀 Pasos para Verificar el Sistema
+# Pasos para Verificar el Sistema
 
-### 1. Iniciar XAMPP
-- Abre el Panel de Control de XAMPP
-- Inicia **Apache** y **MySQL**
+# 1. Iniciar XAMPP
+ Abre el Panel de Control de XAMPP
+ Inicia **Apache** y **MySQL**
 
-### 2. Verificar y Crear Base de Datos
+# 2. Verificar y Crear Base de Datos
 Abre: `http://localhost/Public/test_db.php`
 
 Este script automáticamente:
-- ✅ Verifica la conexión a la BD
-- ✅ Crea las tablas si no existen (usuarios, cabanas, reservas)
-- ✅ Inserta un usuario admin por defecto
-- ✅ Inserta 3 cabañas de ejemplo
+-  Verifica la conexión a la BD
+-  Crea las tablas si no existen (usuarios, cabanas, reservas)
+-  Inserta un usuario admin por defecto
+-  Inserta 3 cabañas de ejemplo
 
-### 3. Credenciales por Defecto
+# 3. Credenciales por Defecto
 **Usuario Admin:**
 - Email: `admin@cabanas.com`
 - Password: `admin123`

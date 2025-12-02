@@ -5,15 +5,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-4">
-                <h4 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">🏔️ Cabañas del Bosque</h4>
+                <h4 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;"> Cabañas del Bosque</h4>
                 <p style="opacity: 0.9;">Tu refugio perfecto en la naturaleza. Desconéctate del mundo y reconéctate contigo mismo.</p>
             </div>
             <div class="col-md-4 mb-4">
-                <h5 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">📍 Ubicación</h5>
+                <h5 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;"> Ubicación</h5>
                 <p style="opacity: 0.9;">Montañas del Norte<br>Valle Escondido<br>Naturaleza Pura</p>
             </div>
             <div class="col-md-4 mb-4">
-                <h5 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;">📞 Contacto</h5>
+                <h5 style="font-family: 'Playfair Display', serif; margin-bottom: 1rem;"> Contacto</h5>
                 <p style="opacity: 0.9;">
                     📧 info@cabanasdelbosuqe.com<br>
                     📱 +1 (555) 123-4567<br>

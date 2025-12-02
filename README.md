@@ -1,1 +1,2 @@
 # TP-Final-de-Base-de-datos
+Este tp es una reverenda mierda, odio este trabajo, odio a mi compañero de laburo, odio mi vida y odio la matearia de algoritmos porque el profe tiro una prueba sin explicar de que mierda era con antelación
